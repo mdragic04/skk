@@ -1,13 +1,13 @@
 const { Const } = require("../../lib");
 
-const { registrationServices, userServices, utilityServices } = require("../../services");
+const { userServices, utilityServices } = require("../../services");
 const { sendResponse } = utilityServices;
 
 module.exports = async (request, response) => {
   try {
     const { name, email } = request.body;
 
-    const { code, message } = registrationServices.validateRegistrationData({ name, email }) || {};
+    const { code, message } = userServices.validateUserData({ name, email }) || {};
     if (code) {
       return sendResponse({ response, code, message: `registration - ${message}` });
     }

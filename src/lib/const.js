@@ -7,4 +7,5 @@ module.exports = {
   responseCodeInvalidEmail: 400002,
 
   responseCodeUserAlreadyExists: 400003,
+  responseCodeUserNotFound: 400004,
 };

@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.0"
+  },
+  "name": "skk-tickets",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdragic04/skk-tickets.git"
+  },
+  "author": "Marko Dragić",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdragic04/skk-tickets/issues"
+  },
+  "homepage": "https://github.com/mdragic04/skk-tickets#readme",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

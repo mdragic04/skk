@@ -18,14 +18,12 @@ const validateRegistrationData = ({ name, email }) => {
   const emailRegexp =
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
-  if (!emailRegexp.test(emailToValidate)) {
+  if (!emailRegexp.test(email)) {
     return {
       code: Const.responseCodeNoEmail,
       message: "invalid email parameter",
     };
   }
-
-  const user = await;
 };
 
 module.exports = { validateRegistrationData };

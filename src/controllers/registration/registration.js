@@ -7,12 +7,12 @@ module.exports = async (request, response) => {
   try {
     const { name, email } = request.body;
 
-    const { code, message } = registrationServices.validateRegistrationData({ name, email });
+    const { code, message } = registrationServices.validateRegistrationData({ name, email }) || {};
     if (code) {
       return sendResponse({ response, code, message: `registration - ${message}` });
     }
 
-    const userExists = userServices.getUser({ query: { name, email } });
+    const userExists = await userServices.getUser({ query: { name, email } });
     if (userExists) {
       return sendResponse({
         response,
@@ -25,7 +25,7 @@ module.exports = async (request, response) => {
 
     await userServices.createUser({ name, email, accessToken });
 
-    sendResponse({ response, data: { accessToken } });
+    sendResponse({ response, code: Const.responseCodeSuccess, data: { accessToken } });
   } catch (error) {
     console.error("registration", error);
     sendResponse({ response, code: Const.responseCodeServerError });

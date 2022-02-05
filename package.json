@@ -23,6 +23,7 @@
   "homepage": "https://github.com/mdragic04/skk-tickets#readme",
   "description": "",
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1"
   }
 }

@@ -1,18 +1,20 @@
 const { Const } = require("../../lib");
 
-const { userServices, utilityServices } = require("../../services");
-const { sendResponse } = utilityServices;
+const {
+  userServices: { validateUserData, getUser, createUser },
+  utilityServices: { sendResponse, generateToken },
+} = require("../../services");
 
 module.exports = async (request, response) => {
   try {
     const { name, email } = request.body;
 
-    const { code, message } = userServices.validateUserData({ name, email }) || {};
+    const { code, message } = validateUserData({ name, email }) || {};
     if (code) {
       return sendResponse({ response, code, message: `registration - ${message}` });
     }
 
-    const userExists = await userServices.getUser({ query: { name, email } });
+    const userExists = await getUser({ query: { name, email } });
     if (userExists) {
       return sendResponse({
         response,
@@ -21,9 +23,9 @@ module.exports = async (request, response) => {
       });
     }
 
-    const accessToken = utilityServices.generateToken({ name, email });
+    const accessToken = generateToken({ name, email });
 
-    await userServices.createUser({ name, email, accessToken });
+    await createUser({ name, email, accessToken });
 
     sendResponse({ response, code: Const.responseCodeSuccess, data: { name, email, accessToken } });
   } catch (error) {

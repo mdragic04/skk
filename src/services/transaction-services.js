@@ -9,7 +9,7 @@ const getTransaction = ({ query, projection }) => {
 };
 
 const getTransactions = ({ query, projection }) => {
-  return Transaction.find(query, projection);
+  return Transaction.find(query, projection).lean();
 };
 
 const updateTransaction = (transaction) => {

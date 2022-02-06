@@ -24,7 +24,7 @@
     "url": "https://github.com/mdragic04/skk/issues"
   },
   "homepage": "https://github.com/mdragic04/skk#readme",
-  "description": "",
+  "description": "Sustav za kupovinu karata - Ars Futura zadatak",
   "devDependencies": {
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1"

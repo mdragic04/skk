@@ -22,4 +22,29 @@ const generateToken = (data) => {
   return jwt.sign(data, process.env.JWT_SECRET, { expiresIn: process.env.JWT_TTL });
 };
 
-module.exports = { sendResponse, generateToken };
+const tokenChecker = (request, response, next) => {
+  const token = request.body.token || request.query.token || request.headers["x-access-token"];
+  if (!token) {
+    return sendResponse({
+      response,
+      code: Const.responseCodeTokenInvalid,
+      message: "Invalid token",
+    });
+  }
+
+  jwt.verify(token, process.env.JWT_SECRET, (error, decoded) => {
+    if (error) {
+      console.error("Token checker", error);
+      return sendResponse({
+        response,
+        code: Const.responseCodeTokenInvalid,
+        message: "Invalid token",
+      });
+    }
+
+    request.decoded = decoded;
+    next();
+  });
+};
+
+module.exports = { sendResponse, generateToken, tokenChecker };

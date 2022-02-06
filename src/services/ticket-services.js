@@ -1,11 +1,11 @@
 const { Ticket } = require("../models");
 
 const getTicket = ({ query, projection }) => {
-  return Ticket.findOne({ query, projection });
+  return Ticket.findOne(query, projection);
 };
 
 const getTickets = ({ query, projection }) => {
-  return Ticket.find({ query, projection });
+  return Ticket.find(query, projection);
 };
 
 const updateTicket = (ticket) => {

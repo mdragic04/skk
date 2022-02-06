@@ -31,7 +31,7 @@ const createUser = (userData) => {
 };
 
 const getUser = ({ query, projection }) => {
-  return User.findOne({ query, projection });
+  return User.findOne(query, projection);
 };
 
 const updateUser = (user) => {

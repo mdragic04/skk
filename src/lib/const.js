@@ -10,4 +10,16 @@ module.exports = {
 
   responseCodeUserAlreadyExists: 400003,
   responseCodeUserNotFound: 400004,
+
+  responseCodeInvalidTicketId: 400005,
+  responseCodeTicketNotFound: 400006,
+  responseCodeTicketQuantity: 400007,
+  responseCodeTicketDepartTimeExceeded: 400008,
+  responseCodeNoCardNumber: 400009,
+  responseCodeInvalidCardNumber: 400010,
+
+  transactionTypeTicket: 1,
+
+  transactionStatusCompleted: 1,
+  transactionStatusCanceled: 2,
 };

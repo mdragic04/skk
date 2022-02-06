@@ -49,6 +49,7 @@ const seed = async () => {
   await Ticket.insertMany(seedTickets);
 
   await mongoose.connection.close();
+  console.log("Seeding completed");
 };
 
 seed();

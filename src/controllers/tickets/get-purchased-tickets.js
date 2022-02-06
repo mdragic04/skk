@@ -41,7 +41,7 @@ module.exports = async (request, response) => {
 
     sendResponse({ response, code: Const.responseCodeSuccess, data: { purchasedTickets } });
   } catch (error) {
-    console.error("get purchased tickets", error);
+    console.error("get purchased tickets ", error);
     sendResponse({ response, code: Const.responseCodeServerError });
   }
 };

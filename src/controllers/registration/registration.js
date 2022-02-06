@@ -25,9 +25,9 @@ module.exports = async (request, response) => {
 
     const accessToken = generateToken({ name, email });
 
-    await createUser({ name, email, accessToken });
+    const user = await createUser({ name, email, accessToken });
 
-    sendResponse({ response, code: Const.responseCodeSuccess, data: { name, email, accessToken } });
+    sendResponse({ response, code: Const.responseCodeSuccess, data: { user } });
   } catch (error) {
     console.error("registration", error);
     sendResponse({ response, code: Const.responseCodeServerError });

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const { Const } = require("../lib");
 
-const sendResponse = ({ response, code, message, data }) => {
+const sendResponse = ({ response, code, message, data = {} }) => {
   if (code !== Const.responseCodeSuccess) {
     console.log(`Error code ${code}, ${message}`);
   }

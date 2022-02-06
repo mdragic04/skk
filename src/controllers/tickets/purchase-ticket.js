@@ -80,16 +80,16 @@ module.exports = async (request, response) => {
       status: Const.transactionStatusCompleted,
     });
 
-    data.completed = true;
-    data.transactionId = transaction._id.toString();
-
     sendResponse({
       response,
       code: Const.responseCodeSuccess,
-      data,
+      data: {
+        completed: true,
+        transactionId: transaction._id.toString(),
+      },
     });
   } catch (error) {
-    console.error("purchase ticket", error);
+    console.error("purchase ticket ", error);
     sendResponse({ response, code: Const.responseCodeServerError });
   }
 };

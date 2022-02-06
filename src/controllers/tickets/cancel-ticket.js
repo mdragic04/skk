@@ -73,7 +73,7 @@ module.exports = async (request, response) => {
       data,
     });
   } catch (error) {
-    console.error("cancel ticket", error);
+    console.error("cancel ticket ", error);
     sendResponse({ response, code: Const.responseCodeServerError });
   }
 };

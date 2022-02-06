@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const mongoose = require("mongoose");
 
-const { Carrier, Ticket } = require("../models");
+const { Carrier, Ticket, Transaction } = require("../models");
 
 const seed = async () => {
   mongoose.connect(
@@ -47,6 +47,8 @@ const seed = async () => {
 
   await Ticket.deleteMany({});
   await Ticket.insertMany(seedTickets);
+
+  await Transaction.deleteMany({});
 
   await mongoose.connection.close();
   console.log("Seeding completed");

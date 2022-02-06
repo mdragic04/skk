@@ -10,7 +10,7 @@ module.exports = async (request, response) => {
     const tickets = await getTickets({});
     sendResponse({ response, code: Const.responseCodeSuccess, data: { tickets } });
   } catch (error) {
-    console.error("getTickets", error);
+    console.error("get tickets", error);
     sendResponse({ response, code: Const.responseCodeServerError });
   }
 };

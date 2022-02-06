@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 const {
-  ticketsController: { getTickets, purchaseTicket, cancelTicket },
+  ticketsController: { getTickets, getPurchasedTickets, purchaseTicket, cancelTicket },
 } = require("../controllers");
 
 const {
@@ -9,6 +9,7 @@ const {
 } = require("../services");
 
 router.get("/", getTickets);
+router.get("/purchased", tokenChecker, getPurchasedTickets);
 router.post("/:ticketId/purchase", tokenChecker, purchaseTicket);
 router.post("/:ticketId/cancel", tokenChecker, cancelTicket);
 

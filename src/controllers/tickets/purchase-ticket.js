@@ -9,9 +9,9 @@ const {
 
 module.exports = async (request, response) => {
   try {
-    const { name, email } = request.decoded;
     const { ticketId } = request.params;
     const { cardNumber } = request.body;
+    const { name, email } = request.decoded;
     const requestUser = await getUser({ query: { name, email } });
     const data = { completed: false };
 

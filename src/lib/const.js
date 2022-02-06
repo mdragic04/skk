@@ -18,8 +18,13 @@ module.exports = {
   responseCodeNoCardNumber: 400009,
   responseCodeInvalidCardNumber: 400010,
 
+  responseCodeCancelTimeWindowExceeded: 400015,
+  responseCodeTransactionNotFound: 400016,
+
   transactionTypeTicket: 1,
 
   transactionStatusCompleted: 1,
   transactionStatusCanceled: 2,
+
+  cancelWindow: 60 * 60 * 1000,
 };
